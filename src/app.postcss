@@ -1,5 +1,22 @@
-/*place global styles here */
-html,
+html, body { @apply h-full overflow-hidden }
+
 body {
-	@apply h-full;
+	background-image:
+		radial-gradient(at 0% 30%, rgba(var(--color-primary-400) / 0.33) 0px, transparent 50%),
+		radial-gradient(at 90% 10%, rgba(var(--color-secondary-400) / 0.33) 0px, transparent 50%),
+		radial-gradient(at 55% 85%, rgba(var(--color-tertiary-400) / 0.33) 0px, transparent 50%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@font-face {
+	font-family: 'Shrikhand';
+	src: url('/fonts/Shrikhand-Regular.ttf');
+}
+				
+:root {
+    --theme-font-family-base: 'Shrikhand', sans-serif;
+    --theme-font-family-heading: 'Shrikhand', sans-serif;
 }
