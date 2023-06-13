@@ -1,7 +1,15 @@
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+import skeleton from '@skeletonlabs/skeleton/tailwind/skeleton.cjs';
+import path from 'path';
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
 	darkMode: 'class',
-	content: ['./src/**/*.{html,js,svelte,ts}', require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')],
+	content: [
+        './src/**/*.{html,js,svelte,ts}', 
+        path.join(path.dirname(require.resolve('@skeletonlabs/skeleton')), '../**/*.{html,js,svelte,ts}')
+    ],
 	theme: {
 		extend: {
 			animation: {
@@ -19,5 +27,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('@tailwindcss/forms'),require('@tailwindcss/typography'),...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()],
+	plugins: [forms, typography, ...skeleton()],
 }
