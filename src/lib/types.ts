@@ -10,3 +10,11 @@ export type Post = {
     image: string,
     imageAlt: string
 }
+export interface Projects {
+    slug: string
+    title: string
+    date: string
+    description: string
+    imgSource: string
+    imgAlternate: string
+}

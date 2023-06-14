@@ -24,7 +24,7 @@
 		title="Issue Analysis Platform"
 		datetime="2023-06-06"
 		dateformat="June 6th, 2023"
-		description="I created a web application that provides a comprehensive, user-friendly way for Internal Audit professionals to dig deeper into company issues and action plans. The application leverages a large language model from OpenAI to analyze the text associated with issues and predict themes. After themes are predicted, auditors will be notified of the classifications and have the ability to override any tags. Once the auditor approves of the tagging, a dashboard is updated to reflect the new issues and tags.</br></br> No more lengthy analyses or manual reporting! Just real-time, insightful data at your fingertips."
+		description="I created a web application that provides a comprehensive, user-friendly way for Internal Audit professionals to dig deeper into company issues and action plans. The application leverages a large language model from OpenAI to analyze the text associated with issues and predict themes. A dashboard is updated to reflect the new issues and tags.</br></br> No more lengthy analyses or manual reporting! Just real-time, insightful data at your fingertips."
 		link="/projects/issue-analysis-tool"
 		imgSrc="/images/personal-website.jpg"
 		imgAlt="Issues Analysis Tool"
