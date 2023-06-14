@@ -2,8 +2,10 @@
     import { LightSwitch } from '@skeletonlabs/skeleton'
 </script>
 
-<div class="flex flex-col justify-between p-4 md:flex-row-reverse place-items-center gap-4 bg-slate-100 dark:bg-slate-800 bg-opacity-80 dark:bg-opacity-80">
-    <div class="flex flex-row gap-8 md:mr-8">	
+<div class="flex flex-col-reverse justify-between p-4 md:grid md:grid-cols-3 place-items-center bg-slate-100 dark:bg-slate-800 bg-opacity-80 dark:bg-opacity-80">
+    <p class="unstyled font-sans text-sm whitespace-nowrap pt-2 md:pt-0 md:ml-4 text-center md:place-self-stretch md:flex md:items-center">Copyright © 2023 Paul Young. All rights reserved.</p>
+    <LightSwitch class="hidden md:block"/>
+    <div class="flex flex-row gap-8 md:mr-8 md:place-self-end">  
         <a href="https://www.linkedin.com/in/paul-daniel-young" target="_blank" rel="noreferrer">
             <svg id="footersvg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black dark:text-white feather feather-github"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
@@ -14,8 +16,6 @@
             <svg id="footersvg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black dark:text-white feather feather-github"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
         </a>
     </div>
-    <LightSwitch class="hidden md:block"/>
-    <p class="unstyled font-sans md:ml-4 text-center">Copyright © 2023 Paul Young. All rights reserved.</p>
 </div>
 
 <style>
