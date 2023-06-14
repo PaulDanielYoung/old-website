@@ -23,5 +23,6 @@
 		<li><a href="/projects" class={routeId.startsWith('/projects') ? "btn btn-sm bg-primary-300-600-token unstyled font-sans" : "btn btn-sm unstyled font-sans"} on:click={drawerClose}>Projects</a></li>
 		<li><a href="/blog" class={routeId.startsWith('/blog') ? "btn btn-sm bg-primary-300-600-token unstyled font-sans" : "btn btn-sm unstyled font-sans"} on:click={drawerClose}>Blog</a></li>
 		<li><a href="/about" class={routeId === '/about' ? "btn btn-sm bg-primary-300-600-token unstyled font-sans" : "btn btn-sm unstyled font-sans"} on:click={drawerClose}>About</a></li>
+		<li><a href="/contact" class={routeId === '/contact' ? "btn btn-sm bg-primary-300-600-token unstyled font-sans" : "btn btn-sm unstyled font-sans"} on:click={drawerClose}>Contact</a></li>
 	</ul>
 </nav>
