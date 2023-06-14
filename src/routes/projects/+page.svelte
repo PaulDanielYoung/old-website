@@ -7,7 +7,7 @@
 <div class="w-screen p-4 lg:p-8 space-y-3">
     <h1>Projects</h1>
     <hr class="h-1"/>
-    <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-sm md:max-w-none mx-auto md:mx-0 justify-items-center md:justify-items-stretch">
         {#each data.projects as project}
             <a href={`projects/${project.slug}`} class="block card card-hover">
                 <header class="card-header">
