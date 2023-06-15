@@ -4,6 +4,8 @@
 
     export let data: PageData;
 
+    let selectedService: Service = "Audit";
+
     // Client API:
     const { form, errors, constraints } = superForm(data.form);
 
@@ -69,27 +71,21 @@
             </label>
             <label class="label" for="service">
                 <span class="unstyled font-sans font-semibold">Service</span>
-                <select class="select unstyled font-sans text-sm rounded-md" name="service" aria-invalid={$errors.service ? 'true' : undefined} bind:value={$form.service} {...$constraints.service} required>
-                    <option value="audit">Audit</option>
-                    <option value="data-analytics">Data Analytics</option>
-                    <option value="web-development">Web Development</option>
+                <select class="select unstyled font-sans text-sm rounded-md" name="service" aria-invalid={$errors.service ? 'true' : undefined} bind:value={selectedService} {...$constraints.service} required>
+                    <option value="Audit">Audit</option>
+                    <option value="Data Analytics">Data Analytics</option>
+                    <option value="Web Development">Web Development</option>
                 </select>
             </label>
+
             <label class="label" for="sub_service">
-    <span class="unstyled font-sans font-semibold">Sub-service</span>
-    <select class="select unstyled font-sans text-sm rounded-md" name="sub_service" aria-invalid={$errors.sub_service ? 'true' : undefined} bind:value={$form.sub_service} {...$constraints.sub_service} required>
-        {#each Object.keys(services) as service (service)}
-    <optgroup label={service}>
-        {#each getSubServices(service) as sub_service}
-            <option value={sub_service}>{sub_service}</option>
-        {/each}
-    </optgroup>
-{/each}
-
-    </select>
-</label>
-
-
+                <span class="unstyled font-sans font-semibold">Sub-service</span>
+                <select class="select unstyled font-sans text-sm rounded-md" name="sub_service" aria-invalid={$errors.sub_service ? 'true' : undefined} bind:value={$form.sub_service} {...$constraints.sub_service} required>
+                    {#each services[selectedService] as sub_service (sub_service)}
+                        <option value={sub_service}>{sub_service}</option>
+                    {/each}
+                </select>
+            </label>
         </fieldset>
         <fieldset class="grid grid-cols-1 gap-4">
             <label class="label col-span-2" for="message">
