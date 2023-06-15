@@ -22,7 +22,7 @@
     <h1>Contact</h1>
     <hr class="h-1"/>
 
-    <div class="card max-w-[900px] mx-auto p-10 grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-4 md:gap-10 items-center text-center md:text-left">
+    <div class="card mx-auto p-10 grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-4 md:gap-10 items-center text-center md:text-left max-w-sm md:max-w-[1000px]">
         <div>
             <figure class="avatar flex aspect-square text-surface-50 font-semibold justify-center items-center overflow-hidden isolate bg-surface-400-500-token w-40  rounded-full   mx-auto md:mx-0" data-testid="avatar">
                 <img class="avatar-image w-full h-full object-cover" src="https://avatars.githubusercontent.com/u/124548605?v=4" alt="" style="">
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <form method="POST" class="card variant-glass p-10 space-y-5">
+    <form method="POST" class="card variant-glass p-10 space-y-5 max-w-sm md:max-w-[1000px] mx-auto">
         <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <label class="label">
                 <span class="unstyled font-sans font-semibold">Full Name</span>
