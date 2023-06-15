@@ -1,15 +1,16 @@
 <script lang="ts">
     import type { PageData } from './$types';
     import { superForm } from 'sveltekit-superforms/client';
+    import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 
     export let data: PageData;
 
     // Client API:
-    const { form } = superForm(data.form);
+    const { form, errors, constraints } = superForm(data.form);
 
     type Service = "audit" | "data-analytics" | "web-development";
 
-    let contactForm = {
+/*     let contactForm = {
         full_name: '',
         email: '',
         company_name: '',
@@ -23,7 +24,7 @@
         "audit": ["All Phases", "Planning", "Walkthrough", "Fieldwork", "Reporting"],
         "data-analytics": ["Assessment & Analysis", "Visualizations", "Model Development", "Training and Support"],
         "web-development": ["Design & Prototyping", "Font & Back-End Development", "Testing & Deployment", "Maintenance & Support"]
-    };
+    }; */
 </script>
 
 <div class="w-screen p-4 lg:p-8 space-y-3">
@@ -52,11 +53,13 @@
         <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <label class="label" for="name">
                 <span class="unstyled font-sans font-semibold">Full Name</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="name" placeholder="Fred Rogers" bind:value={$form.name} required>
+                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="name" placeholder="Fred Rogers" aria-invalid={$errors.name ? 'true' : undefined} bind:value={$form.name} {...$constraints.name} required>
+                {#if $errors.name}<span class="invalid">{$errors.name}</span>{/if}
             </label>
             <label class="label" for="email">
                 <span class="unstyled font-sans font-semibold">Email</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="email" name="email" placeholder="Fred.Rogers@neighborhood.com" bind:value={$form.email} required>
+                <input class="input unstyled font-sans text-sm rounded-md" type="email" name="email" placeholder="Fred.Rogers@neighborhood.com" aria-invalid={$errors.email ? 'true' : undefined} bind:value={$form.email} {...$constraints.email} required>
+                {#if $errors.email}<span class="invalid">{$errors.email}</span>{/if}
             </label>
             <!-- <label class="label">
                 <span class="unstyled font-sans font-semibold">Company Name</span>
@@ -95,4 +98,5 @@
             <button type="submit" class="btn variant-filled-primary unstyled font-sans text-sm font-bold rounded-md">Submit</button>
         </fieldset>
     </form>
+    <SuperDebug data={$form} />
 </div>
