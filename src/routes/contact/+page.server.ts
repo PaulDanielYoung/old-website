@@ -44,10 +44,10 @@ export const actions: Actions = {
 
 		// Set up the email data
 		const mailOptions = {
-			from: '"Website Form" <admin@paulyoung.fun>', // sender address
-			to: 'pauldanielyoung@outlook.com', // list of receivers
-			subject: 'Test Form Submission', // Subject line
-			text: `Name: ${form.data.name}\nEmail: ${form.data.email}`, // plain text body
+			from: '"Personal Website Form" <admin@paulyoung.fun>',
+			to: 'pauldanielyoung@outlook.com',
+			subject: 'New Business Inquiry',
+			text: `Name: ${form.data.name}\nEmail: ${form.data.email}`,
 		};
 
 		// Send the email
