@@ -53,25 +53,25 @@
         <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <label class="label" for="name">
                 <span class="unstyled font-sans font-semibold">Full Name</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="name" placeholder="Fred Rogers" aria-invalid={$errors.name ? 'true' : undefined} bind:value={$form.name} {...$constraints.name} required>
+                <input id="name" class="input unstyled font-sans text-sm rounded-md" type="text" name="name" placeholder="Fred Rogers" autocomplete="name" aria-invalid={$errors.name ? 'true' : undefined} bind:value={$form.name} {...$constraints.name} required>
                 {#if $errors.name}<span class="invalid">{$errors.name}</span>{/if}
             </label>
             <label class="label" for="email">
                 <span class="unstyled font-sans font-semibold">Email</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="email" name="email" placeholder="Fred.Rogers@neighborhood.com" aria-invalid={$errors.email ? 'true' : undefined} bind:value={$form.email} {...$constraints.email} required>
+                <input id="email" class="input unstyled font-sans text-sm rounded-md" type="email" name="email" placeholder="Fred.Rogers@neighborhood.com" autocomplete="email" aria-invalid={$errors.email ? 'true' : undefined} bind:value={$form.email} {...$constraints.email} required>
                 {#if $errors.email}<span class="invalid">{$errors.email}</span>{/if}
             </label>
             <label class="label" for="company_name">
                 <span class="unstyled font-sans font-semibold">Company Name</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="company_name" placeholder="Mister Rogers' Neighborhood" aria-invalid={$errors.company_name ? 'true' : undefined} bind:value={$form.company_name} {...$constraints.company_name} required>
+                <input id="company_name" class="input unstyled font-sans text-sm rounded-md" type="text" name="company_name" placeholder="Mister Rogers' Neighborhood" aria-invalid={$errors.company_name ? 'true' : undefined} bind:value={$form.company_name} {...$constraints.company_name} required>
             </label>
             <label class="label" for="title">
                 <span class="unstyled font-sans font-semibold">Title</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="title" placeholder="Educator, Puppeteer, Friend" aria-invalid={$errors.title ? 'true' : undefined} bind:value={$form.title} {...$constraints.title} required>
+                <input id="title" class="input unstyled font-sans text-sm rounded-md" type="text" name="title" placeholder="Educator, Puppeteer, Friend" aria-invalid={$errors.title ? 'true' : undefined} bind:value={$form.title} {...$constraints.title} required>
             </label>
             <label class="label" for="service">
                 <span class="unstyled font-sans font-semibold">Service</span>
-                <select class="select unstyled font-sans text-sm rounded-md" name="service" aria-invalid={$errors.service ? 'true' : undefined} bind:value={selectedService} {...$constraints.service} required>
+                <select id="service" class="select unstyled font-sans text-sm rounded-md" name="service" aria-invalid={$errors.service ? 'true' : undefined} bind:value={selectedService} {...$constraints.service} required>
                     <option value="Audit">Audit</option>
                     <option value="Data Analytics">Data Analytics</option>
                     <option value="Web Development">Web Development</option>
@@ -80,7 +80,7 @@
 
             <label class="label" for="sub_service">
                 <span class="unstyled font-sans font-semibold">Sub-service</span>
-                <select class="select unstyled font-sans text-sm rounded-md" name="sub_service" aria-invalid={$errors.sub_service ? 'true' : undefined} bind:value={$form.sub_service} {...$constraints.sub_service} required>
+                <select id="sub-service" class="select unstyled font-sans text-sm rounded-md" name="sub_service" aria-invalid={$errors.sub_service ? 'true' : undefined} bind:value={$form.sub_service} {...$constraints.sub_service} required>
                     {#each services[selectedService] as sub_service (sub_service)}
                         <option value={sub_service}>{sub_service}</option>
                     {/each}
@@ -90,7 +90,7 @@
         <fieldset class="grid grid-cols-1 gap-4">
             <label class="label col-span-2" for="message">
                 <span class="unstyled font-sans font-semibold">Message</span>
-                <textarea class="textarea unstyled font-sans text-sm rounded-md" name="message" rows="4" placeholder="Let me know how I can help..." aria-invalid={$errors.message ? 'true' : undefined} bind:value={$form.message} {...$constraints.message} required></textarea>
+                <textarea id="message" class="textarea unstyled font-sans text-sm rounded-md" name="message" rows="4" placeholder="Let me know how I can help..." aria-invalid={$errors.message ? 'true' : undefined} bind:value={$form.message} {...$constraints.message} required></textarea>
             </label>
         </fieldset>
         <fieldset class="flex justify-between items-center gap-4">
