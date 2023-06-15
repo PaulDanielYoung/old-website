@@ -80,7 +80,7 @@
 
             <label class="label" for="sub_service">
                 <span class="unstyled font-sans font-semibold">Sub-service</span>
-                <select id="sub-service" class="select unstyled font-sans text-sm rounded-md" name="sub_service" aria-invalid={$errors.sub_service ? 'true' : undefined} bind:value={$form.sub_service} {...$constraints.sub_service} required>
+                <select id="sub_service" class="select unstyled font-sans text-sm rounded-md" name="sub_service" aria-invalid={$errors.sub_service ? 'true' : undefined} bind:value={$form.sub_service} {...$constraints.sub_service} required>
                     {#each services[selectedService] as sub_service (sub_service)}
                         <option value={sub_service}>{sub_service}</option>
                     {/each}
