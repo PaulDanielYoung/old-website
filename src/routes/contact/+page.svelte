@@ -61,14 +61,15 @@
                 <input class="input unstyled font-sans text-sm rounded-md" type="email" name="email" placeholder="Fred.Rogers@neighborhood.com" aria-invalid={$errors.email ? 'true' : undefined} bind:value={$form.email} {...$constraints.email} required>
                 {#if $errors.email}<span class="invalid">{$errors.email}</span>{/if}
             </label>
-            <!-- <label class="label">
+            <label class="label" for="company_name">
                 <span class="unstyled font-sans font-semibold">Company Name</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="company_name" placeholder="Mister Rogers' Neighborhood" required>
-            </label> <label class="label">
-                <span class="unstyled font-sans font-semibold">Title</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="title" placeholder="Educator, Puppeteer, Friend" required>
+                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="company_name" placeholder="Mister Rogers' Neighborhood" aria-invalid={$errors.company_name ? 'true' : undefined} bind:value={$form.company_name} {...$constraints.company_name} required>
             </label>
-            <label class="label">
+            <label class="label" for="title">
+                <span class="unstyled font-sans font-semibold">Title</span>
+                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="title" placeholder="Educator, Puppeteer, Friend" aria-invalid={$errors.title ? 'true' : undefined} bind:value={$form.title} {...$constraints.title} required>
+            </label>
+            <!-- <label class="label">
         <span class="unstyled font-sans font-semibold">Service</span>
         <select bind:value={form.service} class="select unstyled font-sans text-sm rounded-md" name="service">
             <option value="audit">Audit</option>

@@ -7,7 +7,9 @@ import type { Actions, PageServerLoad } from './$types';
 
 const schema = z.object({
 	name: z.string().default(''),
-	email: z.string().email()
+	email: z.string().email(),
+	company_name: z.string().default(''),
+	title: z.string().default('')
 });
 
 export const load: PageServerLoad = async () => {
@@ -47,7 +49,7 @@ export const actions: Actions = {
 			from: '"Personal Website Form" <admin@paulyoung.fun>',
 			to: 'pauldanielyoung@outlook.com',
 			subject: 'New Business Inquiry',
-			text: `Name: ${form.data.name}\nEmail: ${form.data.email}`,
+			text: `Name: ${form.data.name}\nEmail: ${form.data.email}\nCompany Name: ${form.data.company_name}\nTitle: ${form.data.title}`,
 		};
 
 		// Send the email
