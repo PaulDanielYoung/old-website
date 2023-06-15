@@ -1,7 +1,15 @@
 <script lang="ts">
+    import type { PageData } from './$types';
+    import { superForm } from 'sveltekit-superforms/client';
+
+    export let data: PageData;
+
+    // Client API:
+    const { form } = superForm(data.form);
+
     type Service = "audit" | "data-analytics" | "web-development";
 
-    let form = {
+    let contactForm = {
         full_name: '',
         email: '',
         company_name: '',
@@ -42,15 +50,15 @@
 
     <form method="POST" class="card variant-glass p-10 space-y-5 max-w-sm md:max-w-[1000px] mx-auto">
         <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <label class="label">
+            <label class="label" for="name">
                 <span class="unstyled font-sans font-semibold">Full Name</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="full_name" placeholder="Fred Rogers" required>
+                <input class="input unstyled font-sans text-sm rounded-md" type="text" name="name" placeholder="Fred Rogers" bind:value={$form.name} required>
             </label>
-            <label class="label">
+            <label class="label" for="email">
                 <span class="unstyled font-sans font-semibold">Email</span>
-                <input class="input unstyled font-sans text-sm rounded-md" type="email" name="email" placeholder="Fred.Rogers@neighborhood.com" required>
+                <input class="input unstyled font-sans text-sm rounded-md" type="email" name="email" placeholder="Fred.Rogers@neighborhood.com" bind:value={$form.email} required>
             </label>
-            <label class="label">
+            <!-- <label class="label">
                 <span class="unstyled font-sans font-semibold">Company Name</span>
                 <input class="input unstyled font-sans text-sm rounded-md" type="text" name="company_name" placeholder="Mister Rogers' Neighborhood" required>
             </label> <label class="label">
@@ -81,7 +89,7 @@
                 <span class="unstyled font-sans font-semibold">Message</span>
                 <textarea class="textarea unstyled font-sans text-sm rounded-md" name="message" rows="4" placeholder="Let me know how I can help..." required></textarea>
             </label>
-        </fieldset>
+        </fieldset>  -->
         <fieldset class="flex justify-between items-center gap-4">
             <p class="opacity-50 unstyled font-sans text-sm">I will typically contact you within 24-48 hours.</p>
             <button type="submit" class="btn variant-filled-primary unstyled font-sans text-sm font-bold rounded-md">Submit</button>
