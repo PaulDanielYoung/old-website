@@ -1,24 +1,28 @@
 <script lang="ts">
     import type { PageData } from './$types';
     import { superForm } from 'sveltekit-superforms/client';
-    import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 
     export let data: PageData;
 
     // Client API:
     const { form, errors, constraints } = superForm(data.form);
 
-    type Service = "audit" | "data-analytics" | "web-development";
-
-    let contactForm = {
-        service: 'audit' as Service | '',
-    };
+    type Service = "Audit" | "Data Analytics" | "Web Development";
 
     const services: Record<Service, string[]> = {
-        "audit": ["All Phases", "Planning", "Walkthrough", "Fieldwork", "Reporting"],
-        "data-analytics": ["Assessment & Analysis", "Visualizations", "Model Development", "Training and Support"],
-        "web-development": ["Design & Prototyping", "Font & Back-End Development", "Testing & Deployment", "Maintenance & Support"]
+        "Audit": ["All Phases", "Planning", "Walkthrough", "Fieldwork", "Reporting"],
+        "Data Analytics": ["Assessment & Analysis", "Visualizations", "Model Development", "Training and Support"],
+        "Web Development": ["Design & Prototyping", "Font & Back-End Development", "Testing & Deployment", "Maintenance & Support"]
     };
+    let allSubServices: string[] = [];
+    Object.values(services).forEach(subServices => {
+        allSubServices = [...allSubServices, ...subServices];
+    });
+
+    function getSubServices(service: string): string[] {
+    return services[service as Service];
+}
+
 </script>
 
 <div class="w-screen p-4 lg:p-8 space-y-3">
@@ -72,15 +76,20 @@
                 </select>
             </label>
             <label class="label" for="sub_service">
-                <span class="unstyled font-sans font-semibold">Sub-service</span>
-                <select class="select unstyled font-sans text-sm rounded-md" name="sub_service" aria-invalid={$errors.sub_service ? 'true' : undefined} bind:value={$form.sub_service} {...$constraints.sub_service} required>
-                    {#if contactForm.service}
-                        {#each services[contactForm.service] as sub_service}
-                            <option value={sub_service}>{sub_service}</option>
-                        {/each}
-                    {/if}
-                </select>
-            </label>
+    <span class="unstyled font-sans font-semibold">Sub-service</span>
+    <select class="select unstyled font-sans text-sm rounded-md" name="sub_service" aria-invalid={$errors.sub_service ? 'true' : undefined} bind:value={$form.sub_service} {...$constraints.sub_service} required>
+        {#each Object.keys(services) as service (service)}
+    <optgroup label={service}>
+        {#each getSubServices(service) as sub_service}
+            <option value={sub_service}>{sub_service}</option>
+        {/each}
+    </optgroup>
+{/each}
+
+    </select>
+</label>
+
+
         </fieldset>
         <fieldset class="grid grid-cols-1 gap-4">
             <label class="label col-span-2" for="message">
@@ -93,5 +102,4 @@
             <button type="submit" class="btn variant-filled-primary unstyled font-sans text-sm font-bold rounded-md">Submit</button>
         </fieldset>
     </form>
-    <SuperDebug data={$form} />
 </div>
