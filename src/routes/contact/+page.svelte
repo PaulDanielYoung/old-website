@@ -10,21 +10,15 @@
 
     type Service = "audit" | "data-analytics" | "web-development";
 
-/*     let contactForm = {
-        full_name: '',
-        email: '',
-        company_name: '',
-        title: '',
+    let contactForm = {
         service: 'audit' as Service | '',
-        sub_service: '',
-        message: ''
     };
 
     const services: Record<Service, string[]> = {
         "audit": ["All Phases", "Planning", "Walkthrough", "Fieldwork", "Reporting"],
         "data-analytics": ["Assessment & Analysis", "Visualizations", "Model Development", "Training and Support"],
         "web-development": ["Design & Prototyping", "Font & Back-End Development", "Testing & Deployment", "Maintenance & Support"]
-    }; */
+    };
 </script>
 
 <div class="w-screen p-4 lg:p-8 space-y-3">
@@ -69,31 +63,31 @@
                 <span class="unstyled font-sans font-semibold">Title</span>
                 <input class="input unstyled font-sans text-sm rounded-md" type="text" name="title" placeholder="Educator, Puppeteer, Friend" aria-invalid={$errors.title ? 'true' : undefined} bind:value={$form.title} {...$constraints.title} required>
             </label>
-            <!-- <label class="label">
-        <span class="unstyled font-sans font-semibold">Service</span>
-        <select bind:value={form.service} class="select unstyled font-sans text-sm rounded-md" name="service">
-            <option value="audit">Audit</option>
-            <option value="data-analytics">Data Analytics</option>
-            <option value="web-development">Web Development</option>
-        </select>
-    </label>
-    <label class="label">
-        <span class="unstyled font-sans font-semibold">Sub-service</span>
-        <select bind:value={form.sub_service} class="select unstyled font-sans text-sm rounded-md" name="sub_service">
-            {#if form.service}
-                {#each services[form.service] as sub_service}
-                    <option value={sub_service}>{sub_service}</option>
-                {/each}
-            {/if}
-        </select>
-    </label>
+            <label class="label" for="service">
+                <span class="unstyled font-sans font-semibold">Service</span>
+                <select class="select unstyled font-sans text-sm rounded-md" name="service" aria-invalid={$errors.service ? 'true' : undefined} bind:value={$form.service} {...$constraints.service} required>
+                    <option value="audit">Audit</option>
+                    <option value="data-analytics">Data Analytics</option>
+                    <option value="web-development">Web Development</option>
+                </select>
+            </label>
+            <label class="label" for="sub_service">
+                <span class="unstyled font-sans font-semibold">Sub-service</span>
+                <select class="select unstyled font-sans text-sm rounded-md" name="sub_service" aria-invalid={$errors.sub_service ? 'true' : undefined} bind:value={$form.sub_service} {...$constraints.sub_service} required>
+                    {#if contactForm.service}
+                        {#each services[contactForm.service] as sub_service}
+                            <option value={sub_service}>{sub_service}</option>
+                        {/each}
+                    {/if}
+                </select>
+            </label>
         </fieldset>
         <fieldset class="grid grid-cols-1 gap-4">
-            <label class="label col-span-2">
+            <label class="label col-span-2" for="message">
                 <span class="unstyled font-sans font-semibold">Message</span>
-                <textarea class="textarea unstyled font-sans text-sm rounded-md" name="message" rows="4" placeholder="Let me know how I can help..." required></textarea>
+                <textarea class="textarea unstyled font-sans text-sm rounded-md" name="message" rows="4" placeholder="Let me know how I can help..." aria-invalid={$errors.message ? 'true' : undefined} bind:value={$form.message} {...$constraints.message} required></textarea>
             </label>
-        </fieldset>  -->
+        </fieldset>
         <fieldset class="flex justify-between items-center gap-4">
             <p class="opacity-50 unstyled font-sans text-sm">I will typically contact you within 24-48 hours.</p>
             <button type="submit" class="btn variant-filled-primary unstyled font-sans text-sm font-bold rounded-md">Submit</button>
