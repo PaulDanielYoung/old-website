@@ -1,7 +1,8 @@
 <script lang="ts">
     import type { PageData } from './$types';
     import { superForm } from 'sveltekit-superforms/client';
-    import { toastStore } from '@skeletonlabs/skeleton'; // import toastStore
+    import { toastStore } from '@skeletonlabs/skeleton';
+    import { confettiAction } from "svelte-legos";
 
     export let data: PageData;
 
@@ -104,7 +105,7 @@
         </fieldset>
         <fieldset class="flex justify-between items-center gap-4">
             <p class="opacity-50 unstyled font-sans text-sm">I will typically contact you within 24-48 hours.</p>
-            <button type="submit" class="btn variant-filled-primary unstyled font-sans text-sm font-bold rounded-md">Submit</button>
+            <button type="submit" class="btn variant-filled-primary unstyled font-sans text-sm font-bold rounded-md" use:confettiAction>Submit</button>
         </fieldset>
     </form>
 </div>
