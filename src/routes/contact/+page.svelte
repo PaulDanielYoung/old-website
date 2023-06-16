@@ -6,7 +6,6 @@
 
     let selectedService: Service = "Audit";
 
-    // Client API:
     const { form, errors, constraints } = superForm(data.form);
 
     type Service = "Audit" | "Data Analytics" | "Web Development";
@@ -22,9 +21,8 @@
     });
 
     function getSubServices(service: string): string[] {
-    return services[service as Service];
-}
-
+        return services[service as Service];
+    }
 </script>
 
 <div class="w-screen p-4 lg:p-8 space-y-3">
