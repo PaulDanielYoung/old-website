@@ -13,6 +13,7 @@
         multipleSubmits: 'prevent',
         onUpdated({ form }) {
             if (form.valid) {
+                // Create a toast
                 const t = {
                     message: 'Form submitted successfully!',
                     timeout: 5000,
@@ -20,6 +21,20 @@
                     classes: 'unstyled font-sans'
                 };
                 toastStore.trigger(t); // trigger the toast
+
+                // Clear the form
+                $form = {
+                    name: '',
+                    email: '',
+                    company_name: '',
+                    title: '',
+                    service: 'Audit',
+                    sub_service: services['Audit'][0], // Set to the first sub_service of 'Audit'
+                    message: '',
+                };
+
+                // Update the selectedService variable to 'Audit'
+                selectedService = 'Audit';
             }
         }
     }
