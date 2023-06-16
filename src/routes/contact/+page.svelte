@@ -1,12 +1,27 @@
 <script lang="ts">
     import type { PageData } from './$types';
     import { superForm } from 'sveltekit-superforms/client';
+    import { toastStore } from '@skeletonlabs/skeleton'; // import toastStore
 
     export let data: PageData;
 
     let selectedService: Service = "Audit";
 
-    const { form, errors, constraints } = superForm(data.form);
+    const { form, errors, constraints, enhance } = superForm(data.form, {
+        onUpdated({ form }) {
+            if (form.valid) {
+                const t = {
+                    message: 'Form submitted successfully!',
+                    timeout: 5000,
+                    background: 'variant-filled-primary',
+                    classes: 'unstyled font-sans'
+                };
+                toastStore.trigger(t); // trigger the toast
+            }
+        }
+    }
+    
+    );
 
     type Service = "Audit" | "Data Analytics" | "Web Development";
 
@@ -19,10 +34,6 @@
     Object.values(services).forEach(subServices => {
         allSubServices = [...allSubServices, ...subServices];
     });
-
-    function getSubServices(service: string): string[] {
-        return services[service as Service];
-    }
 </script>
 
 <div class="w-screen p-4 lg:p-8 space-y-3">
@@ -47,7 +58,7 @@
         </div>
     </div>
 
-    <form method="POST" class="card variant-glass p-10 space-y-5 max-w-sm md:max-w-[1000px] mx-auto">
+    <form method="POST" use:enhance class="card variant-glass p-10 space-y-5 max-w-sm md:max-w-[1000px] mx-auto">
         <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <label class="label" for="name">
                 <span class="unstyled font-sans font-semibold">Full Name</span>

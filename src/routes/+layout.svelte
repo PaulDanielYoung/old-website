@@ -15,6 +15,8 @@
 
 	import { AppShell, LightSwitch, Drawer, drawerStore, focusTrap, setInitialClassState } from '@skeletonlabs/skeleton';
 	import { onMount } from 'svelte';
+	import { Toast } from '@skeletonlabs/skeleton';
+
 	import Navigation from '$lib/Navigation/Navigation.svelte';
 	import Header from '$lib/Navigation/Header.svelte';
 	import Footer from '$lib/Navigation/Footer.svelte';
@@ -43,6 +45,8 @@
 
 	export let data;
 </script>
+
+<Toast />
 
 <svelte:window on:resize={updateWindowWidthAndCheckMedium} />
 
