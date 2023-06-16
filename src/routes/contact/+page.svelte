@@ -8,7 +8,7 @@
 
     let selectedService: Service = "Audit";
 
-    const { form, errors, constraints, enhance, delayed } = superForm(data.form, {
+    const { form, errors, constraints, enhance, delayed, tainted } = superForm(data.form, {
         clearOnSubmit: 'errors-and-message',
         multipleSubmits: 'prevent',
         onUpdated({ form }) {
@@ -35,11 +35,12 @@
 
                 // Update the selectedService variable to 'Audit'
                 selectedService = 'Audit';
+
+                // Untaint the form
+                $tainted = {};
             }
         }
-    }
-    
-    );
+    });
 
     type Service = "Audit" | "Data Analytics" | "Web Development";
 
