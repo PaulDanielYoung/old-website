@@ -2,13 +2,15 @@
     import type { PageData } from './$types';
     import { superForm } from 'sveltekit-superforms/client';
     import { toastStore } from '@skeletonlabs/skeleton';
-    import { confettiAction } from "svelte-legos";
+    import spinner from '$lib/Assets/spinner.svg';
 
     export let data: PageData;
 
     let selectedService: Service = "Audit";
 
-    const { form, errors, constraints, enhance } = superForm(data.form, {
+    const { form, errors, constraints, enhance, delayed } = superForm(data.form, {
+        clearOnSubmit: 'errors-and-message',
+        multipleSubmits: 'prevent',
         onUpdated({ form }) {
             if (form.valid) {
                 const t = {
@@ -64,12 +66,10 @@
             <label class="label" for="name">
                 <span class="unstyled font-sans font-semibold">Full Name</span>
                 <input id="name" class="input unstyled font-sans text-sm rounded-md" type="text" name="name" placeholder="Fred Rogers" autocomplete="name" aria-invalid={$errors.name ? 'true' : undefined} bind:value={$form.name} {...$constraints.name} required>
-                {#if $errors.name}<span class="invalid">{$errors.name}</span>{/if}
             </label>
             <label class="label" for="email">
                 <span class="unstyled font-sans font-semibold">Email</span>
                 <input id="email" class="input unstyled font-sans text-sm rounded-md" type="email" name="email" placeholder="Fred.Rogers@neighborhood.com" autocomplete="email" aria-invalid={$errors.email ? 'true' : undefined} bind:value={$form.email} {...$constraints.email} required>
-                {#if $errors.email}<span class="invalid">{$errors.email}</span>{/if}
             </label>
             <label class="label" for="company_name">
                 <span class="unstyled font-sans font-semibold">Company Name</span>
@@ -105,7 +105,10 @@
         </fieldset>
         <fieldset class="flex justify-between items-center gap-4">
             <p class="opacity-50 unstyled font-sans text-sm">I will typically contact you within 24-48 hours.</p>
-            <button type="submit" class="btn variant-filled-primary unstyled font-sans text-sm font-bold rounded-md" use:confettiAction>Submit</button>
+            <div class="flex items-center gap-x-3">
+                <button type="submit" class="btn variant-filled-primary unstyled font-sans text-sm font-bold rounded-md">Submit</button>
+                {#if $delayed}<img src={spinner} alt='spinner'/>{/if}
+            </div>
         </fieldset>
     </form>
 </div>
