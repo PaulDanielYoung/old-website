@@ -3,6 +3,10 @@
   import AnimatedHeadline from '$lib/Home/AnimatedHeadline.svelte'
 </script>
 
+<svelte:head>
+    <title>Paul Young's Personal Website</title>
+</svelte:head>
+
 <div class="w-screen p-4 md:p-8 space-y-3">
 
 	<div>
