@@ -17,7 +17,7 @@
                 const t = {
                     message: 'Form submitted successfully!',
                     timeout: 5000,
-                    background: 'variant-filled-primary',
+                    background: 'variant-filled-success',
                     classes: 'unstyled font-sans'
                 };
                 toastStore.trigger(t); // trigger the toast
