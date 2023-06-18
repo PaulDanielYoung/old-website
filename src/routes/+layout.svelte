@@ -16,6 +16,7 @@
 	import { AppShell, LightSwitch, Drawer, drawerStore, focusTrap, setInitialClassState } from '@skeletonlabs/skeleton';
 	import { onMount } from 'svelte';
 	import { Toast } from '@skeletonlabs/skeleton';
+	import { goto } from '$app/navigation';
 
 	import Navigation from '$lib/Navigation/Navigation.svelte';
 	import Header from '$lib/Navigation/Header.svelte';
@@ -30,6 +31,11 @@
 	onMount(() => {
 		updateWindowWidthAndCheckMedium();
 		setInitialClassState();
+		// navigate to the same URL and replace the history state
+		goto(location.href, { replaceState: true });
+
+		// manually set the scroll position to the top of the page
+		window.scrollTo(0, 0);
 	});
 
 	const updateWindowWidthAndCheckMedium = () => {
