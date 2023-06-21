@@ -1,5 +1,9 @@
+<script lang="ts">
+    import Headshot from '$lib/Assets/images/Headshot.jpg'
+</script>
+
 <svelte:head>
-    <title>Paul Young's Personal Website</title>
+    <title>About Paul Young</title>
 </svelte:head>
 
 <div class="w-screen p-4 lg:p-8 space-y-3">
@@ -8,7 +12,7 @@
 
     <div class="flex flex-col justify-center align-middle space-y-10">
         <div class="flex flex-col lg:flex-row justify-center items-center">
-            <img src='/images/Headshot.jpg' alt='Headshot' class="rounded-md object-cover w-full h-auto max-w-sm lg:max-w-md mb-4 lg:mb-0 lg:mr-4" loading="lazy" />
+            <img src={Headshot} alt='Headshot' class="rounded-md object-cover w-full h-auto max-w-sm lg:max-w-md mb-4 lg:mb-0 lg:mr-4" loading="lazy" />
             <div class="flex flex-col items-start">
                 <p class="max-w-sm lg:max-w-md xl:max-w-xl unstyled font-sans text-">
                     Paul Young is a freelance full-stack developer based in Washington D.C. and creates innovative content on the web.<br /><br />

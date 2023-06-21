@@ -1,6 +1,7 @@
 <script lang="ts">
   import Projects from '$lib/Home/Projects.svelte'
   import AnimatedHeadline from '$lib/Home/AnimatedHeadline.svelte'
+  import personal_website from '$lib/Assets/images/personal-website.jpg'
 </script>
 
 <svelte:head>
@@ -30,7 +31,7 @@
 		dateformat="June 6th, 2023"
 		description="I created a web application that provides a comprehensive, user-friendly way for Internal Audit professionals to dig deeper into company issues and action plans. The application leverages a large language model from OpenAI to analyze the text associated with issues and predict themes. A dashboard is updated to reflect the new issues and tags.</br></br> No more lengthy analyses or manual reporting! Just real-time, insightful data at your fingertips."
 		link="/projects/issue-analysis-tool"
-		imgSrc="/images/personal-website.jpg"
+		imgSrc={personal_website}
 		imgAlt="Issues Analysis Tool"
 		tags={['Svelte', 'SvelteKit', 'TailwindCSS', 'Vite', 'Vercel']}
 	/>
